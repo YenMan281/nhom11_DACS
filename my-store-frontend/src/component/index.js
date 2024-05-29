@@ -1,0 +1,12 @@
+export { default as Header } from './Header/Header'
+export { default as Slider } from './Slider/Slider'
+export { default as Products } from "./Products/Products"
+export { default as Footer } from "./Footer/Footer"
+export { default as ProductDetail } from "./Products/ProductDetail/ProductDetail"
+export { default as Features } from "./Features/Features"
+export { default as HomeProducts } from "./HomeProducts/HomeProducts"
+export { default as AllUser } from "./AllUsers/AllUser"
+export { default as Cart } from "./Cart"
+export { default as AddProduct } from "./AddProduct"
+export { default as OrderHistory } from "./OrderHistory"
+export { default as AllOrder } from "./AllOrder"
