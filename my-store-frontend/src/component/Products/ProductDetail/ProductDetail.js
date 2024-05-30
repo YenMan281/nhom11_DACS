@@ -149,7 +149,7 @@ const ProductDetail = () => {
                             title={prod.title}
                             price={prod.price}
                             id={prod.id}
-                            styles="w-1/4 cursor-pointer " />
+                           />
                     )}
                 </div>
             </div>

@@ -19,6 +19,8 @@ const Order = sequelize.define('order', {
         type: Sequelize.STRING,
         allowNull: false
     },
+    phoneNumber: Sequelize.STRING,
+    note: Sequelize.STRING,
     userId: {
         type: Sequelize.INTEGER,
         allowNull: false

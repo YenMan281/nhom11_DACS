@@ -81,7 +81,7 @@ const Header = ({ onClickToggle, offset }) => {
                 >
                     <RiUserLine size={18} className="font-bold absolute bottom-0 left-0" />
                     {isShowLogin &&
-                        <div className='absolute top-full ml-[50%] -translate-x-[50%] 768:w-40 w-40 rounded-md shadow-md bg-[#e6e6e6]'>
+                        <div className='absolute top-full ml-[50%] -translate-x-[50%] 768:w-60 w-60 rounded-md shadow-md bg-[#e6e6e6]'>
                             {!user && <div className='flex flex-col py-5 text-justify'>
                                 <Link className='flex items-center px-4 gap-2 py-2 hover:bg-[#b1b1b1]' to="/login"> <AiOutlineLogin size={20} />ĐĂNG NHẬP </Link>
                                 <Link className='flex items-center px-4 gap-2 py-2 hover:bg-[#b1b1b1]' to="/signup"> <FiLogIn size={20} /> THOÁT</Link>

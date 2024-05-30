@@ -5,8 +5,9 @@ require("dotenv").config();
 const jwt = require('jsonwebtoken');
 
 exports.addOrder = async(req, res, next) => {
-    const { userId, total, products } = req.body;
+    const { userId, total, products, address, note, phoneNumber } = req.body;
     let cart = await Cart.findOne({ where: { userId: userId } })
+    console.log(cart);
     if (!cart) {
         cart = await Cart.create({ userId });
     }
@@ -15,9 +16,12 @@ exports.addOrder = async(req, res, next) => {
             userId,
             cartId: cart.id,
             total,
-            address: req.address,
+            address,
             status: "order",
+            note,
+            phoneNumber
         });
+        console.log(order);
         const promises = products.map(async(product) => {
             const cartItem = await CartItem.findOne({ where: { cartId: cart.id, productId: product.id } });
             if (cartItem) {

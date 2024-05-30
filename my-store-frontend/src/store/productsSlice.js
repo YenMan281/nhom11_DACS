@@ -7,8 +7,8 @@ const initialState = {
         success: false,
     },
     getProducts: {
-        category: "mens",
-        currenPath: "mens",
+        category: "",
+        currenPath: "",
         currenProducts: [],
         products: [],
     },
