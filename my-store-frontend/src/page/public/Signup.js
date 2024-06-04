@@ -116,7 +116,7 @@ const Signup = () => {
                         <Link to="/login">Bạn Đã Có Tài Khoản Chưa?</Link>
                         <Link>Quên Mật Khẩu?</Link>
                     </div>
-                    <button type='submit' className='bg-blue-500 ml-10 px-6 py-3 text-white rounded-md hover:opacity-80'>Sign Up &#8594;</button>
+                    <button type='submit' className='bg-blue-500 ml-10 px-6 py-3 text-white rounded-md hover:opacity-80'>Đăng Nhập &#8594;</button>
                 </form>
             </div>
             {isFetching && ReactDOM.createPortal(<Loading />, document.getElementById("loading"))}

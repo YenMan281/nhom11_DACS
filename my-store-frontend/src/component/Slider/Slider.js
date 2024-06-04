@@ -21,9 +21,9 @@ const Slider = () => {
                 </div>
                 <span className='font-semibold text-[14px] uppercase'>NỘI THẤT CHẤT LƯỢNG - MẪU MÃ MỚI - GIÁ TỐT NHẤT  </span>
                 <Link
-                    to="/womens"
+                    to="/sofa"
                     className='rounded-full border-2 border-white w-3/5 py-2 hover:bg-white hover:text-black capitalize'
-                    onClick={() => { handlerSetProductType("women") }}
+                    onClick={() => { handlerSetProductType("sofa") }}
                 >
                     Bắt đầu mua sắm
                     &#8594;

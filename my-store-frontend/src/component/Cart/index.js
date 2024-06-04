@@ -53,7 +53,7 @@ const Cart = ({ onClickToggle, pathHome }) => {
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Vâng, xóa nó!'
         }).then((result) => {
             if (result.isConfirmed) {
                 dispatch(clearCart())
@@ -91,14 +91,14 @@ const Cart = ({ onClickToggle, pathHome }) => {
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, order it!'
+                confirmButtonText: 'Vâng, Mua hàng!'
             }).then((result) => {
                 if (result.isConfirmed) {
                     orderProducts(cartOrder, dispatch, currentUser.token, requestJWT);
                     Swal.fire({
                         position: 'center',
                         icon: 'success',
-                        title: 'Order thành công!',
+                        title: 'Hoàn thành!',
                         showConfirmButton: false,
                         timer: 1500
                     })
@@ -215,7 +215,7 @@ const Cart = ({ onClickToggle, pathHome }) => {
                             <input name='address' onChange={handleChange} className='h-10 border rounded-md ' type='text' />
                         </div>
                         <div className='flex gap-2 flex-col'>
-                            <label>Gi chú</label>
+                            <label>Ghi chú</label>
                             <input name="note" onChange={handleChange} className='h-10 border rounded-md ' type='text' />
                         </div>
 

@@ -45,8 +45,13 @@ const AllOrder = () => {
             <p className='font-bold text-2xl capitalize'>Đơn hàng</p>
             {orders?.map((order, index) => (
                 <div className='w-full 768:w-3/5 border-collapse border rounded-md shadow-md flex flex-col gap-3 p-4 cursor-pointer' key={index} onClick={() => handleToggleDetailOrder(order[0].id)}>
-                    <div>Người dùng: {order[0].userId}</div>
-                    <span>Tổng đơn: {order.length}</span>
+                    <div className="grid grid-cols-2">
+                        <div><strong>Người dùng:</strong> {order[0].user.name}</div>
+                        <div><strong>Số điện thoại:</strong> {order[0].phoneNumber}</div>
+                        <div><strong>Địa chỉ:</strong> {order[0]    .address}</div>
+                        <div><strong>Ghi chú:</strong> {order[0].note}</div>
+                    </div>
+                    <span><strong>Tổng đơn:</strong> {order.length}</span>
                     {selectedOrderIds.includes(order[0].id) && (
                         order.map((item) => (
                             <div key={item.id} className='px-4 flex gap-4 duration-1000 animate-slide-left2 justify-around'>

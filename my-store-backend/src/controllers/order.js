@@ -3,8 +3,11 @@ const Cart = require('../models/cart');
 const CartItem = require("../models/cart-item");
 require("dotenv").config();
 const jwt = require('jsonwebtoken');
+const User = require('../models/users');
+const Product = require('../models/products');
+const { Sequelize } = require('sequelize');
 
-exports.addOrder = async(req, res, next) => {
+exports.addOrder = async (req, res, next) => {
     const { userId, total, products, address, note, phoneNumber } = req.body;
     let cart = await Cart.findOne({ where: { userId: userId } })
     console.log(cart);
@@ -22,7 +25,7 @@ exports.addOrder = async(req, res, next) => {
             phoneNumber
         });
         console.log(order);
-        const promises = products.map(async(product) => {
+        const promises = products.map(async (product) => {
             const cartItem = await CartItem.findOne({ where: { cartId: cart.id, productId: product.id } });
             if (cartItem) {
                 // Nếu cartItem đã tồn tại, ta sẽ update lại quantity của nó
@@ -46,7 +49,7 @@ exports.addOrder = async(req, res, next) => {
     }
 };
 
-exports.getOrder = async(req, res) => {
+exports.getOrder = async (req, res) => {
     const token = req.headers.token;
     const accessToken = token.split(" ")[1];
     const user = jwt.verify(accessToken, process.env.SECRET_KEY)
@@ -54,10 +57,10 @@ exports.getOrder = async(req, res) => {
     Cart.findOne({ where: { userId: user.id } })
         .then((cart) => {
             Order.findAll({ where: { cartId: cart.id } })
-                .then(async(orders) => {
+                .then(async (orders) => {
                     console.log(orders.length);
                     const data = [];
-                    const promises = orders.map(async(order) => {
+                    const promises = orders.map(async (order) => {
                         const orderCartItem = await CartItem.findAll({ where: { orderId: order.id } });
                         if (orderCartItem) {
                             data.push(orderCartItem)
@@ -71,10 +74,24 @@ exports.getOrder = async(req, res) => {
         .catch((error) => { console.log(error) })
 }
 
-exports.getAllOrder = async(req, res) => {
-    Order.findAll()
-        .then((orders) => {
-            return res.status(200).json({ message: "success", data: orders });
-        })
-        .catch((error) => { console.log(error) })
+exports.getAllOrder = async (req, res) => {
+    Order.findAll({
+        include: [
+            {
+                model: User
+            },
+            {
+                model: Cart,
+            },
+            
+        ]
+    })
+    .then((orders) => {
+        
+        return res.status(200).json({ message: "success", data: orders });
+    })
+    .catch((error) => { 
+        console.log(error);
+    });
+    
 }

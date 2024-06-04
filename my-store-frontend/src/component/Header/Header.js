@@ -57,7 +57,7 @@ const Header = ({ onClickToggle, offset }) => {
                     <AiOutlineMenu size={24} />
                 </span>
                 <div className='font-logo font-bold text-[27px] leading-7'>
-                    <Link to="/"><h2 className='tracking-tighter'>Nội Thất LYM</h2></Link>
+                    <Link to="/"><h2 className='tracking-tighter'>Nội Thất Nhà Xinh</h2></Link>
                 </div>
                 <nav className="hidden 992:flex font-logo font-bold text-[14px]  gap-4 pt-1  ">
                     <Navigation offset={offset} />

@@ -12,7 +12,7 @@ const HomeProducts = () => {
 
     useEffect(() => {
         const fetchProducts = async () => {
-            const response = await apis.getProducts("men");
+            const response = await apis.getProducts("sofa");
             dispatch(productsSlice.actions.getProducts(response.data.data))
             setProducts(response.data.data)
         }
@@ -36,14 +36,14 @@ const HomeProducts = () => {
                         title={product.title}
                         id={product.id}
                         styles="768:w-1/4 w-1/2 mb-10 "
-                        pathHome="/mens"
+                        pathHome="/sofa"
                     />
                 )}
             </div>
             <div className='w-full flex justify-center my-5'>
                 <Link
-                    to="/mens"
-                    onClick={() => { handlerSetProductType("men") }}
+                    to="/sofa"
+                    onClick={() => { handlerSetProductType("sofa") }}
                     className="768:text-[16px] text-[12px] text-white rounded-md shadow-md duration-300 uppercase bg-black 768:px-4 768:py-2 px-2 py-1 hover:bg-white hover:text-black border-2 border-black animate-slide-right"
                 >
                     XEM TẤT CẢ SẢN PHẨM

@@ -9,12 +9,12 @@ const Footer = () => {
         <div className='bg-black w-[80%] flex flex-col my-20'>
             <div className='flex justify-center'>
                 <div className='text-white 768:w-1/3 flex flex-col items-center gap-5'>
-                    <div className='font-bold text-[60px] tracking-slider text-center '>Nội Thất LYM</div>
+                    <div className='font-bold text-[60px] tracking-slider text-center '>Nội Thất Nhà Xinh</div>
                     <div className='flex gap-4 text-[28px] justify-center'>
-                        <Link to="https://facebook.com/manhcuong.apk" target="_blank">
+                        <Link to="https://www.facebook.com/" target="_blank">
                             <TiSocialFacebook />
                         </Link >
-                        <Link to="https://github.com/cuong07" target="_blank">
+                        <Link to="https://github.com/YenMan281" target="_blank">
                             <AiFillGithub />
                         </Link>
                         <Link>
@@ -52,7 +52,7 @@ const Footer = () => {
                     <div className='w-[30%] text-white flex flex-col gap-4'>
                         <h2 className='uppercase text-[16px] font-bold'>THÔNG TIN </h2>
                         <div className='flex flex-col'>
-                            <span className='text-[#A1A1A1] text-[17px]'>NỘI THẤT LYM  là thương hiệu chuyên phân phối các dòng sản phẩm nội thất cao cấp như ghế sofa, bàn ăn, giường ngủ, bàn trang điểm. Chúng tôi luôn định hướng tập trung vào chất lượng sản phẩm cũng như quy trình bán hàng nhằm mang lại trải nghiệm chuyên nghiệp, tiện nghi cho quý khách hàng. </span>
+                            <span className='text-[#A1A1A1] text-[17px]'>NỘI THẤT NHÀ XINH  là thương hiệu chuyên phân phối các dòng sản phẩm nội thất cao cấp như ghế sofa, bàn ăn, giường ngủ, bàn trang điểm. Chúng tôi luôn định hướng tập trung vào chất lượng sản phẩm cũng như quy trình bán hàng nhằm mang lại trải nghiệm chuyên nghiệp, tiện nghi cho quý khách hàng. </span>
                             {/* <span className='text-[#A1A1A1] text-[14px]'>Shipping</span>
                             <span className='text-[#A1A1A1] text-[14px]'>Product returns</span>
                             <span className='text-[#A1A1A1] text-[14px]'>FAQs</span>
@@ -65,7 +65,7 @@ const Footer = () => {
             <span className='w-full h-[1px] bg-gray-400 mt-20 mb-10'></span>
             <div className='text-white flex justify-between mb-30'>
                 <span className='text-[10px] text-[#A1A1A1]'>
-                    &#169; 2024@NOITHATLYM.
+                    &#169; 2024@NOITHATNHAXINH.
                 </span>
                 <span className='text-[10px] text-[#A1A1A1]'>
                     Design by 
