@@ -33,7 +33,24 @@ exports.getAllProducts = async (req, res, next) => {
         })
         .catch(err => console.log(err))
 }
-
-
-
-
+// Hàm xóa sản phẩm
+exports.deleteProduct = (req, res) => {
+    Products.destroy({ where: { id: req.params.id } })
+        .then((deleted) => {
+            if (!deleted) {
+                return res.status(404).json({
+                    message: "Không tìm thấy sản phẩm"
+                });
+            }
+            res.status(200).json({
+                message: "Xóa sản phẩm thành công"
+            });
+        })
+        .catch((err) => {
+            console.error(err);
+            res.status(500).json({
+                message: "Xóa sản phẩm thất bại",
+                error: err.message
+            });
+        });
+};

@@ -5,5 +5,7 @@ const shopController = require("../controllers/shop")
 routes.get('/products/:category', shopController.getProducts)
 routes.get("/:prductype/:id", shopController.getDetailProduct)
 routes.get("/product", shopController.getAllProducts)
+routes.delete("/product", shopController.deleteProduct)
+
 
 module.exports = routes;

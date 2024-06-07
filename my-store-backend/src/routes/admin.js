@@ -7,4 +7,5 @@ const router = express.Router();
 router.get('/products', adminControllers.getProducts)
 router.post('/add-product', upload.array('image'), adminControllers.postAddProduct)
 router.delete('/product/:id', adminControllers.removeProduct)
+
 module.exports = router;

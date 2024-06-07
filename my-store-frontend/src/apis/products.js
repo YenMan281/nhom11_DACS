@@ -47,3 +47,15 @@ export const addProduct = async (dispatch, product, navigate) => {
         dispatch(productsSlice.actions.addProductError());
     }
 }
+// Xóa sản phẩm
+export const deleteProduct = async (dispatch, productId) => {
+    dispatch(productsSlice.actions.deleteProductStart());
+    try {
+        const response = await request.delete(`/delete-product/${productId}`);
+        dispatch(productsSlice.actions.deleteProductSuccess(productId));
+        return response;
+    } catch (error) {
+        dispatch(productsSlice.actions.deleteProductError());
+        console.log(error);
+    }
+};
