@@ -16,5 +16,6 @@ const path = {
     CART: '/cart',
     ORDER_HISTORY: '/order-history',
     ALL_ORDER: '/all-order',
+    ALL_PRODUCT: '/all-product'
 }
 export default path;

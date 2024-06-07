@@ -1,7 +1,8 @@
 import request from "../axios"
 import productsSlice from "../store/productsSlice";
 
-export const getProducts = async (category) => {
+export const getProducts = async(category) => {
+
     try {
         const response = await request({
             url: `/products/${category}`,
@@ -12,9 +13,12 @@ export const getProducts = async (category) => {
     }
 }
 
-export const getAllProducts = async () => {
+export const getAllProducts = async(dispatch) => {
+
+
     try {
         const response = await request.get('/product');
+        dispatch(productsSlice.actions.getAllProducts(response.data));
         return response;
     } catch (error) {
         console.log(error);
@@ -22,7 +26,7 @@ export const getAllProducts = async () => {
 }
 
 
-export const getProductDetail = async (category, productId) => {
+export const getProductDetail = async(category, productId) => {
     try {
         const response = await request({
             url: `/${category}/${productId}`
@@ -33,7 +37,19 @@ export const getProductDetail = async (category, productId) => {
     }
 }
 
-export const addProduct = async (dispatch, product, navigate) => {
+
+
+export const deleteProduct = async(dispatch, id) => {
+    dispatch(productsSlice.actions.deleteStart());
+
+    try {
+        const response = await request.delete(`/product/${id}`, )
+        dispatch(productsSlice.actions.deleteSuccess(response.data));
+    } catch (error) {
+        dispatch(productsSlice.actions.deleteError)
+    }
+}
+export const addProduct = async(dispatch, product, navigate) => {
     dispatch(productsSlice.actions.addProductStart())
     try {
         const response = await request.post("/add-product", product, {

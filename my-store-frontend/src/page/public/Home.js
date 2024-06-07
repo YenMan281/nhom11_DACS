@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { Features, HomeProducts, Slider } from '../../component';
-// import bgSale from "../../assets/img/Rectangle.png"  
+import bgSale from "../../assets/img/Rectangle.png"  
 import { getAllProducts } from '../../apis';
 import { useDispatch } from 'react-redux';
 import productsSlice from '../../store/productsSlice';
@@ -26,7 +26,7 @@ const Home = () => {
                     <HomeProducts />
                 </div>
                 <div className='relative'>
-                    <img src="/Rectangle.png" alt="Sale" />
+                    <img src={bgSale} alt="Sale" />
                     <div className='absolute z-10 top-1/4 pl-[50%] -translate-x-[25%] hidden 768:flex text-white gap-10 '>
                         <p className='flex flex-col'>
                             <span className="text-[66px] font-sale font-semibold">NHẬN NGAY <strike className='italic'>20%</strike> <strong>GIẢM GIÁ</strong> LẦN ĐẦU MUA </span>
