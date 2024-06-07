@@ -50,6 +50,18 @@ const productsSlice = createSlice({
         setCurrenProducts: (state, action) => {
             state.getProducts.currenProducts = action.payload;
         },
+        deleteStart: (state) => {
+            state.addProduct.isFetching = true;
+        },
+        deleteSuccess: (state, action) => {
+            state.addProduct.isFetching = false;
+            state.getProducts.success = action.payload;
+            state.addProduct.error = false;
+        },
+        deleteError: (state) => {
+            state.addProduct.isFetching = false;
+            state.addProduct.error = true;
+        }
     }
 })
 

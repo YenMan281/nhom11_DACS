@@ -1,5 +1,5 @@
 import { RiUserLine } from "react-icons/ri"
-import { AiOutlineHeart, AiOutlineLogout, AiFillDelete, AiOutlineHistory, AiOutlineMenu, AiOutlineClose, AiFillGithub, AiOutlineShoppingCart, AiOutlineLogin, AiOutlineUserDelete, AiFillEye, AiFillEyeInvisible } from "react-icons/ai"
+import { AiOutlineHeart, AiOutlineLogout, AiFillDelete, AiOutlineHistory, AiOutlineMenu, AiOutlineClose, AiFillGithub, AiOutlineShoppingCart, AiOutlineLogin, AiOutlineUserAdd, AiOutlineUserDelete, AiFillEye, AiFillEyeInvisible } from "react-icons/ai"
 import { BsCart, BsShieldCheck, BsCoin } from "react-icons/bs"
 import { TiSocialFacebook, TiSocialPinterest, TiSocialDribbble, TiSocialTwitter } from "react-icons/ti"
 import { CiMedal } from "react-icons/ci"
@@ -9,6 +9,7 @@ import { CgUserList } from "react-icons/cg"
 import { BiCartAdd } from "react-icons/bi"
 import { FiLogIn } from "react-icons/fi"
 import { SlArrowDown, SlArrowUp } from "react-icons/sl"
+import { MdEdit, MdDelete } from "react-icons/md";
 
 const icons = {
     RiUserLine,
@@ -39,6 +40,9 @@ const icons = {
     AiOutlineHistory,
     SlArrowDown,
     SlArrowUp,
+    AiOutlineUserAdd,
+    MdEdit,
+    MdDelete
 }
 
 export default icons;

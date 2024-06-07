@@ -9,6 +9,7 @@ cloudinary.config({
 })
 
 exports.uploads = (file, folder) => {
+    console.log(file);
     return new Promise((resolve, reject) => {
         cloudinary.uploader.upload(file, (result) => {
             resolve({
@@ -20,4 +21,4 @@ exports.uploads = (file, folder) => {
             folder: folder
         })
     })
-} 
+}

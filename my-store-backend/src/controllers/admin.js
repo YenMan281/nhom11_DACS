@@ -59,7 +59,24 @@ exports.postAddProduct = async(req, res, next) => {
 }
 
 
-exports.getProducts = async(req, res, next) => {}
+exports.getProductById = async(req, res, next) => {
+    try {
+        await Product.findOne({
+                where: {
+                    id: req.params.id
+                }
+            }).then((product) => {
+                console.log(product);
+                res.status(200).json({
+                    message: "successfully",
+                    data: product
+                })
+            })
+            .catch(err => console.log(err))
+    } catch (err) {
+        return res.status(500).json(req);
+    }
+}
 
 exports.removeProduct = async(req, res) => {
     try {
@@ -68,7 +85,7 @@ exports.removeProduct = async(req, res) => {
                 id: req.params.id
             }
         })
-        return res.status(200).json("delete");
+        return res.status(200).json("deleted");
     } catch (err) {
         return res.status(500).json(req);
     }

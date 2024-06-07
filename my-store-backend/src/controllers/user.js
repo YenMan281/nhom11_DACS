@@ -6,22 +6,18 @@ require("dotenv").config();
 let refreshTokens = [];
 
 const generateToken = (user) => {
-    return jwt.sign(
-        { email: user.email, id: user.id, admin: user.admin },
-        process.env.SECRET_KEY,
-        { expiresIn: "365d" }
+    return jwt.sign({ email: user.email, id: user.id, admin: user.admin },
+        process.env.SECRET_KEY, { expiresIn: "365d" }
     );
 }
 
 const generateRefreshToken = (user) => {
-    return jwt.sign(
-        { email: user.email, id: user.id, admin: user.admin },
-        process.env.SECRET_REFRESHTOKEN_KEY,
-        { expiresIn: "365d" }
+    return jwt.sign({ email: user.email, id: user.id, admin: user.admin },
+        process.env.SECRET_REFRESHTOKEN_KEY, { expiresIn: "365d" }
     );
 }
 
-exports.signup = async (req, res) => {
+exports.signup = async(req, res) => {
     const { username, email, password, name } = req.body;
     try {
         const existingUser = await User.findOne({ where: { email: email } })
@@ -48,7 +44,7 @@ exports.signup = async (req, res) => {
     }
 }
 
-exports.signin = async (req, res) => {
+exports.signin = async(req, res) => {
     const { password, email } = req.body;
     try {
         const existingUser = await User.findOne({ where: { email: email } })
@@ -79,7 +75,7 @@ exports.signin = async (req, res) => {
     }
 }
 
-exports.refreshToken = async (req, res, next) => {
+exports.refreshToken = async(req, res, next) => {
     const refreshToken = req.cookies.refreshToken;
     console.log(refreshToken);
     if (!refreshToken) return res.status(401).json("You're not authenticated");
@@ -112,7 +108,7 @@ exports.getUsers = (req, res) => {
 }
 
 
-exports.deleteUser = async (req, res) => {
+exports.deleteUser = async(req, res) => {
     try {
         await User.destroy({
             where: {
