@@ -1,6 +1,6 @@
 const Products = require("../models/products");
-const cloudinary = require('../../cloudinary');
-const fs = require('fs');
+const cloudinary = require("../../cloudinary");
+const fs = require("fs");
 const Product = require("../models/products");
 
 exports.postAddProduct = async(req, res, next) => {
@@ -58,35 +58,61 @@ exports.postAddProduct = async(req, res, next) => {
     }
 }
 
+exports.getProductById = async (req, res, next) => {
+  try {
+    await Product.findOne({
+      where: {
+        id: req.params.id,
+      },
+    })
+      .then((product) => {
+        console.log(product);
+        res.status(200).json({
+          message: "successfully",
+          data: product,
+        });
+      })
+      .catch((err) => console.log(err));
+  } catch (err) {
+    return res.status(500).json(req);
+  }
+};
 
-exports.getProductById = async(req, res, next) => {
-    try {
-        await Product.findOne({
-                where: {
-                    id: req.params.id
-                }
-            }).then((product) => {
-                console.log(product);
-                res.status(200).json({
-                    message: "successfully",
-                    data: product
-                })
-            })
-            .catch(err => console.log(err))
-    } catch (err) {
-        return res.status(500).json(req);
-    }
-}
+exports.removeProduct = async (req, res) => {
+  try {
+    await Product.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+    return res.status(200).json("deleted");
+  } catch (err) {
+    return res.status(500).json(req);
+  }
+};
 
-exports.removeProduct = async(req, res) => {
+exports.updateProduct = async (req, res) => {
+    console.log(req.body);
     try {
-        await Product.destroy({
-            where: {
-                id: req.params.id
-            }
-        })
-        return res.status(200).json("deleted");
+      await Product.update(
+        {
+          title: req.body.title,
+          price: req.body.price,
+          total: req.body.total,
+          image: req.body.image,
+          description: req.body.description,
+          category: req.body.category
+        },
+        {
+          where: {
+            id: req.body.id,
+          },
+        }
+      );
+      return res.status(200).json("updated");
     } catch (err) {
-        return res.status(500).json(req);
+      console.error(err);  // Log the error to understand what went wrong
+      return res.status(500).json({ error: "An error occurred while updating the product" });
     }
-}
+  };
+  

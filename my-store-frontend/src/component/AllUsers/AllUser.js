@@ -17,7 +17,7 @@ const AllUser = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   let requestJWT = createAxios(user, dispatch, authslice.actions.loginSuccess);
-console.log(deleteSucess);
+
   const handlerDeleteUser = (id) => {
     Swal.fire({
       title: 'Bạn chắc chắn muốn xóa người dùng này?',
@@ -29,7 +29,7 @@ console.log(deleteSucess);
       confirmButtonText: 'Vâng, xóa nó!'
     }).then((result) => {
       if (result.isConfirmed) {
-        deleteUser(user?.token, dispatch, id, requestJWT)
+        // deleteUser(user?.token, dispatch, id, requestJWT)
         Swal.fire(
           'Chưa cho xóa!',
           'Your file has been deleted.',

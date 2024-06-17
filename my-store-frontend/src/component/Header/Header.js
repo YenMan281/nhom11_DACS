@@ -92,6 +92,7 @@ const Header = ({ onClickToggle, offset }) => {
                                 <Link className='flex items-center px-4 gap-2 py-2 hover:bg-[#b1b1b1]' to="/order-history"> <AiOutlineHistory size={20} />ĐƠN HÀNG</Link>
                                 {user?.user.admin && <Link className='flex items-center px-4 gap-2 py-2 hover:bg-[#b1b1b1]' to="/listusers" > <CgUserList size={20} /> QUẢN LÝ </Link>}
                                 {user?.user.admin && <Link className='flex items-center px-4 gap-2 py-2 hover:bg-[#b1b1b1]' to="/add-products" > <BiCartAdd size={20} /> THÊM SẢN PHẨM</Link>}
+                                {user?.user.admin && <Link className='flex items-center px-4 gap-2 py-2 hover:bg-[#b1b1b1]' to="/all-product" > <BiCartAdd size={20} /> QUẢN LÝ SẢN PHẨM</Link>}
                                 {user?.user.admin && <Link className='flex items-center px-4 gap-2 py-2 hover:bg-[#b1b1b1]' to="/all-order" > <BiCartAdd size={20} /> QUẢN LÝ ĐƠN HÀNG</Link>}
                             </div>}
                         </div>

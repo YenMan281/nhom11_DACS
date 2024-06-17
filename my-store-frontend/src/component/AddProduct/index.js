@@ -19,6 +19,7 @@ const AddProduct = () => {
     const [total, setTotal] = useState("");
     const [category, setCategory] = useState("sofa");
 
+    console.log(category);
 
     const handleAddProduct = (e) => {
         e.preventDefault();

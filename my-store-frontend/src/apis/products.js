@@ -13,13 +13,12 @@ export const getProducts = async(category) => {
     }
 }
 
-export const getAllProducts = async(dispatch) => {
+export const getAllProducts = async() => {
 
 
     try {
         const response = await request.get('/product');
-        dispatch(productsSlice.actions.getAllProducts(response.data));
-        return response;
+        return response.data;
     } catch (error) {
         console.log(error);
     }
@@ -39,15 +38,11 @@ export const getProductDetail = async(category, productId) => {
 
 
 
-export const deleteProduct = async(dispatch, id) => {
-    dispatch(productsSlice.actions.deleteStart());
+export const deleteProduct = async(id) => {
 
     try {
         const response = await request.delete(`/product/${id}`, )
-        dispatch(productsSlice.actions.deleteSuccess(response.data));
-    } catch (error) {
-        dispatch(productsSlice.actions.deleteError)
-    }
+    } catch (error) {}
 }
 export const addProduct = async(dispatch, product, navigate) => {
     dispatch(productsSlice.actions.addProductStart())
@@ -63,4 +58,16 @@ export const addProduct = async(dispatch, product, navigate) => {
         dispatch(productsSlice.actions.addProductError());
     }
 
-};
+}
+
+
+export const updateProduct = async(item) => {
+
+    try {
+
+        const response = await request.put(`/update-product`, item)
+
+    } catch (error) {
+
+    }
+}

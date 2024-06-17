@@ -11,6 +11,7 @@ const ProductItem = ({ image, title, price, id, styles, pathHome }) => {
         navigate(path);
     }
 
+    console.log(image);
     return (
         <div className={`${styles ? styles : "768:w-1/4 w-1/2  pb-4 flex-col flex mt-5 bg-white rounded-lg  overflow-hidden 768:px-4 cursor-pointer group-hover: hover:scale-110 top-0 duration-300 hover:z-10 hover:shadow-md "}`}
             onClick={() => { handleGetProductId(id) }}
