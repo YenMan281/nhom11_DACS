@@ -46,10 +46,11 @@ exports.addOrder = async(req, res, next) => {
         await Promise.all(promises);
 
 
-        // vnpay(order)
 
 
-        res.status(200).send({ message: "Thêm dữ liệu thành công!" });
+        res.status(200).send({
+            message: vnpay(order)
+        });
     } catch (error) {
         console.log(error);
         res.status(500).send({ message: "Lỗi khi thêm dữ liệu", error });
@@ -57,7 +58,7 @@ exports.addOrder = async(req, res, next) => {
 };
 
 
-vnpay = async(order) => {
+function vnpay(order) {
     process.env.TZ = 'Asia/Ho_Chi_Minh';
 
     let date = new Date();
@@ -102,7 +103,7 @@ vnpay = async(order) => {
     vnp_Params['vnp_SecureHash'] = signed;
     vnpUrl += '?' + querystring.stringify(vnp_Params, { encode: false });
 
-    res.redirect(vnpUrl)
+    return vnpUrl
 
 }
 

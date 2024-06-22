@@ -11,6 +11,7 @@ import { createAxios } from "../../utils/createIntance";
 import authslice from "../../store/authSlice";
 import Modal from "react-responsive-modal";
 import "react-responsive-modal/styles.css";
+import { Link } from "react-router-dom";
 
 const { AiOutlineClose, AiFillDelete } = icons;
 
@@ -84,9 +85,8 @@ const Cart = ({ onClickToggle, pathHome }) => {
     });
   };
 
-  const handleAddOrder = () => {
+  const handleAddOrder =  () => {
     let total = 0;
-    console.log(cartProductsWithDetails);
     cartProductsWithDetails.forEach(
       (product) => (total += product.price * product.quantity)
     );
@@ -108,9 +108,11 @@ const Cart = ({ onClickToggle, pathHome }) => {
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
         confirmButtonText: "Vâng, Mua hàng!",
-      }).then((result) => {
+      }).then(async (result) => {
         if (result.isConfirmed) {
-          orderProducts(cartOrder, dispatch, currentUser.token, requestJWT);
+          const response= await orderProducts(cartOrder, dispatch, currentUser.token, requestJWT);
+          window.location.href = response.data.message;
+          console.log(response.data.message);
           Swal.fire({
             position: "center",
             icon: "success",
