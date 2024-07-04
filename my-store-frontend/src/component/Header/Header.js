@@ -30,7 +30,7 @@ const Header = ({ onClickToggle, offset }) => {
     const handlerLogoutUser = () => {
         Swal.fire({
             title: 'Bạn chắc chắn muốn đăng xuất?',
-            text: "Tất cả sản phẩm trong giỏ hàng ủa bạn sẽ bị xóa!",
+            text: "Tất cả sản phẩm trong giỏ hàng của bạn sẽ bị xóa!",
             icon: 'question',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',

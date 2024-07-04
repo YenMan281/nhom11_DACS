@@ -83,7 +83,7 @@ const AllProduct = () => {
                 key={user.id}
               >
                 <td className="">
-                  <img style={{ width: "200px" }} src={convertJson(user.image).url} alt="" />
+                  <img style={{ width: "200px" }} src={convertJson(user.image).url} alt="[0]" />
                 </td>
                 <td className="px-4 py-2  text-center">{user.title}</td>
                 <td className="px-4 py-2  text-center">{user.price}</td>
@@ -214,7 +214,7 @@ const AllProduct = () => {
             className="border p-3 bg-blue-500 text-white rounded-md"
             onClick={editProduct}
           >
-            SỮA SẢN PHẨM
+            SỬA SẢN PHẨM
           </button>
         </DrawerComponent>
       </div>
