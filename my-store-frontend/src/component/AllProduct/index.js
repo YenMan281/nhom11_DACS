@@ -14,11 +14,10 @@ const AllProduct = () => {
   const [product, setProduct] = useState();
   const [prodcuts, setProdcuts] = useState([]);
 
-  const editProduct = () => {
-    updateProduct(product);
+  const editProduct = async () => {
+    const data= await updateProduct(product);
     setIsOpenDrawer(false);
     isLoad(!load);
-    console.log(load);
   };
   const handlerDeleteUser = (id) => {
     Swal.fire({
@@ -29,9 +28,9 @@ const AllProduct = () => {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Vâng, xóa nó!",
-    }).then((result) => {
+    }).then(async (result)  => {
       if (result.isConfirmed) {
-        deleteProduct(id);
+        await deleteProduct(id);
 
         Swal.fire("Xoá Thành Công!", "Your file has been deleted.", "success");
         isLoad(!load);
@@ -50,11 +49,11 @@ const AllProduct = () => {
   useEffect(() => {
     const loadProducts = async () => {
       const response = await getAllProducts();
-      console.log(response);
       setProdcuts(response.data);
     };
     loadProducts();
     console.log(prodcuts);
+
   }, [load]);
   return (
     <div className="w-full min-h-screen mt-20 flex flex-col items-center container">
@@ -145,16 +144,7 @@ const AllProduct = () => {
               }
             />
           </div>
-          <div className="flex flex-col gap-3">
-            <label className="text-lg">Hình Ảnh</label>
-            <input
-              className="border p-1"
-              type="file"
-              id="file"
-              name="image"
-              multiple
-            />
-          </div>
+ 
           <div className="flex flex-col gap-3">
             <label>Mô tả</label>
             <textarea

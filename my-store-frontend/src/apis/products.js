@@ -66,6 +66,7 @@ export const updateProduct = async(item) => {
     try {
 
         const response = await request.put(`/update-product`, item)
+        return response.data
 
     } catch (error) {
 
